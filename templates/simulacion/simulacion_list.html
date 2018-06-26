@@ -1,0 +1,143 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+
+Bsim
+
+ 
+{% endblock %}
+{% block navbar %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   
+<div class="container">
+  <a class="navbar-brand" href='/simulacion'><b>Bsim </b></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+     
+<ul class="navbar-nav mr-auto">
+       
+<li class="nav-item">
+        <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
+        </li>
+       
+<li class="nav-item">
+        <a class="nav-link" href='nuevo'>Nueva simulacion</a>
+      </li>
+ 
+    </ul>
+ 
+<form class="form-inline my-2 my-lg-0">
+    
+      
+    </form>
+ 
+      
+      <a class="btn btn-outline-warning d-lg-inline-block mb-3 mb-md-0 ml-md-3" href='/'>SALIR</a>
+ 
+  </div>
+ 
+  </div>
+ 
+</nav>
+   {% endblock %}﻿  
+
+{% block content %}
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">fecha simulacion</th>
+      <th scope="col"> Tipo de suelo</th>
+      <th scope="col">Profundidad</th>
+      <th scope="col">Sistema de drenaje</th>
+      <th scope="col">Plagas</th>
+      <th scope="col"> Desohe </th>
+      <th scope="col">Embolse</th>
+      <th scope="col">Nivel del mar</th>
+      <th scope="col">Temperatura</th>
+      <th scope="col">Pluviosidad</th>
+      <th scope="col"> Luminosidad</th>
+      
+     
+      <th scope="col"></th>
+     
+      
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% if simulaciones %}
+    {% for simulacion in simulaciones %}
+    
+
+    
+    <tr>
+      <td>{{simulacion.fechaSim}}</td>
+      <td>{{simulacion.tipoSuelo}}</td>
+      <td> {{simulacion.profundidad}}</td>
+      <td> {{simulacion.sistemaDrenaje}}</td>
+      <td>{{simulacion.plagas}} </td>
+      <td>{{simulacion.deshoje}}</td>
+      <td>{{simulacion.embolse}}</td>
+      <td>{{simulacion.lvlMar}}</td>
+      <td>{{simulacion.temperatura}}</td>
+      <td>{{simulacion.pluviosidad}}</td>
+      <td>{{simulacion.luminosidad}}</td>
+      
+     
+
+
+      <td> <a href="{% url 'simulacion:simulacion_editar' simulacion.id %}"  class="btn btn-light">Editar</a> </td>
+    
+    
+    
+
+    {% endfor%}
+    {% else %}
+    <h1> No se encuentran registros disponibles </h1>
+
+    
+
+    {% endif %}
+   
+  </tbody>
+</table> 
+
+{% endblock %}
+    
+          
+      
+     
+     
+      
+       
+      
+       
+      
+     
+     
+      
+      
+  
+      
+      
+      
+    
+      
+    
+   
+      
+      
+    
+    
+      
+    
+    
+    
+   
+      
+     
+    <

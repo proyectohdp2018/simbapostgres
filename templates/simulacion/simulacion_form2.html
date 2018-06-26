@@ -1,0 +1,52 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<h6> introduzca los datos, tenga en cuenta que son datos para una simulacion de 1 hectarea y con un precio de $2.00 el Kg</h6>
+<form method="POST">
+  {% csrf_token %}
+  {{form.as_p}}
+  {{contexto.form.as_p}}
+  <button type="submit"  name = "btnFormSim" > Generar Simulacion </button>
+</form>
+
+<br>
+
+
+<table class="table table-striped">
+ 	<thead>
+    	<tr>
+      		<th scope="col">Altura planta (cm)</th>
+      		<th scope="col"> Grosor tallo (cm)</th>
+      		<th scope="col">numero de hojas por mes</th>
+      		<th scope="col">peso de racimo</th>
+      		<th scope="col"> Nota de calidad del cultivo</th>
+      		<th scope="col"> Kilogramos cosechados</th>
+      		<th scope="col"> Precio por Kg</th>
+      		<th scope="col"> Utilidad esperada ($)</th>
+    
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+      		<td>{{contexto.objetoCosecha.alturaPlanta}}</td>
+      		<td>{{contexto.objetoCosecha.grosorTallo}}</td>
+      		<td> {{contexto.objetoCosecha.numeroHojas}}</td>
+      		<td> {{contexto.objetoCosecha.pesoRacimo}}</td>
+      		<td>{{contexto.objetoCosecha.costoHectarea}}</td>
+      		<td>{{contexto.objetoCosecha.kgCosechados}}</td>
+      		<td>{{contexto.objetoCosecha.precioKg}}</td>
+      		<td>{{contexto.objetoCosecha.utilidadEsperada}}</td>
+
+
+
+
+
+     </tr>
+ 	</tbody>
+</table>
+
+
+ 
+
+{% endblock %}
+

@@ -1,0 +1,64 @@
+{% extends 'base/base.html' %}
+<title> Bienvenido
+</title>
+
+{% block navbar %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   
+<div class="container">
+  <a class="navbar-brand" href="./"><b>Bsim</b></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+     
+<ul class="navbar-nav mr-auto">
+       
+<li class="nav-item">
+        <a class="nav-link" href="">Bienvenido <span class="sr-only">(current)</span></a>
+        </li>
+       
+
+ 
+    </ul>
+ 
+<form class="form-inline my-2 my-lg-0">
+    
+      
+    </form>
+ 
+      <a class="btn btn-outline-success d-lg-inline-block mb-3 mb-md-0 ml-md-3" href="/registro">REGISTRATE</a>
+      <a class="btn btn-outline-info d-lg-inline-block mb-3 mb-md-0 ml-md-3" href="/ingresar">INGRESAR</a>
+ 
+  </div>
+ 
+  </div>
+ 
+</nav>
+   {% endblock %}﻿	
+
+{%block content%}
+<h1><center><font face="Comic Sans MS,arial">Bienvenido al simulador <br> Bsim <br> por inicie sesion <br> o registrese y obtenga una cuenta nueva GRATIS!</font></center></h1>
+
+<style >
+#playground-container {
+    height: 500px;
+    overflow: hidden !important;
+    
+}
+.main{margin-top:70px;
+-webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.24);
+-moz-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.24);
+box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.24);
+padding:0px;
+}
+.fb:focus, .fb:hover{color:FFF !important;}
+body{
+background-image:url(https://cdn.pixabay.com/photo/2017/07/31/06/00/banana-tree-2556597_960_720.png);
+background-size: 300px 300px;
+background-position: bottom center; 
+font-family: 'Raleway', sans-serif;
+}
+</style>
+{% endblock %}

@@ -1,0 +1,113 @@
+{% extends 'base/base.html' %}
+
+
+{% block title %}
+
+Bsim Simulacion
+
+ 
+{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   
+<div class="container">
+  <a class="navbar-brand" href="/simulacion"><b>Bsim</b></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+     
+<ul class="navbar-nav mr-auto">
+       
+<li class="nav-item">
+        <a class="nav-link" href='/simulacion'>Inicio <span class="sr-only">(current)</span></a>
+        </li>
+       
+<li class="nav-item">
+        <a class="nav-link" href="#"></a>
+      </li>
+ 
+    </ul>
+ 
+<form class="form-inline my-2 my-lg-0">
+    
+      
+    </form>
+ 
+      <a class="btn btn-danger" href='/logout'>Salir</a>
+  </div>
+ 
+  </div>
+ 
+</nav>
+   {% endblock %}﻿  
+
+
+
+
+
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h6> introduzca los datos, tenga en cuenta que son datos para una simulacion de 1 hectarea y con un precio de $2.00 el Kg</h6>
+      <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        {{contexto.form.as_p}}
+        <button type="submit"  name = "btnFormSim" > Generar Simulacion </button>
+      </form>
+
+<br>
+</div>
+    <div class="col-sm6">
+      {% if contexto.objetoCosecha %}
+        <table class="table table-striped">
+ 	        <thead>
+    	       <tr>
+      		    <th scope="col">Altura planta (cm)</th>
+      		    <th scope="col"> Grosor tallo (cm)</th>
+      		    <th scope="col">numero de hojas por mes</th>
+      		    <th scope="col">peso de racimo</th>
+      		    <th scope="col"> Nota de calidad del cultivo</th>
+      		    <th scope="col"> Kilogramos cosechados</th>
+      		    <th scope="col"> Precio por Kg</th>
+      		    <th scope="col"> Utilidad esperada ($)</th>
+              <th scope="col"></th>
+    
+		        </tr>
+	       </thead>
+	       <tbody>
+		      <tr>
+      		  <td>{{contexto.objetoCosecha.alturaPlanta}}</td>
+      		  <td>{{contexto.objetoCosecha.grosorTallo}}</td>
+      		  <td> {{contexto.objetoCosecha.numeroHojas}}</td>
+      		  <td> {{contexto.objetoCosecha.pesoRacimo}}</td>
+      		  <td>{{contexto.objetoCosecha.costoHectarea}}</td>
+      		  <td>{{contexto.objetoCosecha.kgCosechados}}</td>
+      		  <td>{{contexto.objetoCosecha.precioKg}}</td>
+      		  <td>{{contexto.objetoCosecha.utilidadEsperada}}</td>
+            <td> <a href="{% url 'simulacion:simulacion_listar'  %}"  class="btn btn-light">Finalizar</a> </td>
+
+
+
+
+
+           </tr>
+ 	      </tbody>
+      </table>
+
+
+        {% else %}
+ 	        <h1></h1> 
+        {%endif%}
+  </div>
+</div>
+</div>
+
+
+{% endblock %}
