@@ -13,7 +13,7 @@ class RegistroUsuario(CreateView):
 	model = User
 	templete_name = "registro/registrar.html"
 	form_class = RegistroForm
-	success_url = reverse_lazy('registro/welcome')
+	success_url = '/ingresar'
 
 @login_required()
 def welcome(request):
